@@ -1,0 +1,51 @@
+motion layout
+
+환경 설정
+Android Studio 3.3+
+Constraint Layout library 2.0.0-alpha5+
+
+특징
+
+keyFrame지원
+중간 지점 표시 가능
+
+direct children 에게만 적용된다.
+레이아웃 계층, 중첩된 레이아웃, 엑티비티 트랜지션 지원 x
+
+
+
+
+interface
+	Animatable
+	Barrier 1.1
+	MotionLayout.TransitionListener(2.0)
+Class
+	MotionLayout
+	TransitionAdapter	
+	
+	
+
+LayoutDescription
+	StateSet
+	ConstraintSet
+	Transition
+
+Transition
+	id
+	constraintSetStart, constraintSetEnd
+	motionInterpolater
+	duration
+	staggered??
+	autoTransition
+	OnSwipe(optional)
+	OnClick(optional)
+	KeyFrameSet
+
+참조
+
+
+api)
+https://developer.android.com/reference/android/support/constraint/motion/MotionLayout
+예제)
+https://github.com/android/views-widgets-samples/tree/master/ConstraintLayoutExamples
+https://developer.android.com/training/constraint-layout/motionlayout/examples
