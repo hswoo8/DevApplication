@@ -2,7 +2,6 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import butterknife.ButterKnife
 import butterknife.OnClick
@@ -14,7 +13,7 @@ class MainActivity : AppCompatActivity()
 {
 
     @OnClick(R.id.margin_feature)
-    fun onClickMarginFeature(view: View) {
+    fun onClickMarginFeature() {
         val intent = Intent(this, MarginActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
         startActivity(intent)

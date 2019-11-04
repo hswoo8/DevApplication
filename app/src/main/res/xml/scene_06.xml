@@ -29,6 +29,7 @@
             <KeyPosition
                     motion:keyPositionType="pathRelative"
                     motion:percentY="-0.50"
+                    motion:percentX="0.20"
                     motion:framePosition="25"
                     motion:motionTarget="@id/button"/>
 

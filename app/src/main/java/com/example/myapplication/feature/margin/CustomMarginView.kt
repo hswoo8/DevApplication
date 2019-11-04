@@ -41,18 +41,6 @@ class CustomMarginView : View {
             return
         }
 
-//        if (bitmap!!.width < bitmap!!.height) {
-//            identity.postScale(
-//                (width.toFloat() / bitmap!!.height),
-//                (height.toFloat() / bitmap!!.height)
-//            )
-//        } else {
-//            identity.postScale(
-//                (width.toFloat() / bitmap!!.width),
-//                (height.toFloat() / bitmap!!.width)
-//            )
-//        }
-
         val fl = 0.9f
         identity.postScale(fl, fl)
         identity.postTranslate((width - bitmap!!.width * 0.9f) / 2.0f, (height - bitmap!!.height * 0.9f) / 2.0f)

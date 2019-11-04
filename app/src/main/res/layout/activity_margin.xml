@@ -13,4 +13,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
+
+    <com.example.myapplication.feature.margin.CustomShadowView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
