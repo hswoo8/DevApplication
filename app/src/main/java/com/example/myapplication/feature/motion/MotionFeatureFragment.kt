@@ -1,5 +1,6 @@
 package com.example.myapplication.feature.motion
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

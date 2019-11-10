@@ -17,17 +17,13 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/motionLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layoutDescription="@xml/scene_01"
         tools:showPaths="true">
 
     <View
-            android:id="@id/button"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@color/colorAccent"
-            android:text="Button"
-            tools:layout_editor_absoluteX="127dp"
-            tools:layout_editor_absoluteY="230dp"/>
+            android:id="@+id/button"
+            android:layout_width="1dp"
+            android:layout_height="1dp"/>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

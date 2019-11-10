@@ -17,7 +17,7 @@
 
     <Transition
             motion:constraintSetStart="@id/start"
-            motion:constraintSetEnd="@id/end"
+            motion:constraintSetEnd="@id/end_constraint_set01"
             motion:duration="1000"
             motion:motionInterpolator="linear">
         <OnSwipe
@@ -25,7 +25,7 @@
                 motion:touchAnchorSide="bottom"
                 motion:dragDirection="dragUp" />
 
-        <ConstraintSet android:id="@+id/end">
+        <ConstraintSet android:id="@+id/end_constraint_set01">
             <Constraint
                     android:id="@id/background"
                     android:layout_width="match_parent"

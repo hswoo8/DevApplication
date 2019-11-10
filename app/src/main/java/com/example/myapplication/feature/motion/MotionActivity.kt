@@ -13,21 +13,23 @@ import com.example.myapplication.R
 
 class MotionActivity : AppCompatActivity() {
 
-    @BindView(R.id.fragment_container)
-    lateinit var container: FrameLayout
-
     @BindView(R.id.chapter_input)
     lateinit var input: EditText
 
     @OnClick(R.id.enter)
     fun onClickEnter() {
+        val beginTransaction = supportFragmentManager.beginTransaction()
         if (supportFragmentManager.findFragmentByTag(MotionFeatureFragment.TAG) != null) {
-            supportFragmentManager.beginTransaction().remove(supportFragmentManager.findFragmentByTag(MotionFeatureFragment.TAG)!!)
-                .commitNowAllowingStateLoss()
+            beginTransaction.remove(supportFragmentManager.findFragmentByTag(MotionFeatureFragment.TAG)!!)
         }
 
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, MotionFeatureFragment.newInstance(input.text.toString().toInt()), MotionFeatureFragment.TAG)
+
+        beginTransaction
+            .add(
+                R.id.fragment_container,
+                MotionFeatureFragment.newInstance(input.text.toString().toInt()),
+                MotionFeatureFragment.TAG
+            )
             .commitNowAllowingStateLoss()
     }
 
