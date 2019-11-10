@@ -45,6 +45,7 @@ class MotionFeatureFragment : Fragment() {
             5 -> R.layout.motion_05_imagefilter
             6 -> R.layout.motion_06_keyframe
             7 -> R.layout.motion_07_keyframe
+            8 -> R.layout.motion_08_cycle
             9 -> R.layout.motion_09_coordinatorlayout
             14 -> R.layout.motion_14_side_panel
             15 -> R.layout.motion_15_parallax
