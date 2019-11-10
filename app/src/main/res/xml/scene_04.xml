@@ -6,13 +6,11 @@
     <Transition
             motion:constraintSetStart="@id/start"
             motion:constraintSetEnd="@id/end"
-
             motion:duration="1000">
 
         <OnSwipe
                 motion:touchAnchorId="@id/view"
                 motion:touchAnchorSide="right"
-                motion:onTouchUp="stop"
                 motion:dragDirection="dragRight"/>
 
     </Transition>
@@ -27,6 +25,9 @@
                 motion:layout_constraintBottom_toBottomOf="parent"
                 motion:layout_constraintLeft_toLeftOf="parent"
                 motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                    motion:attributeName="BackgroundColor"
+                    motion:customColorValue="@color/colorAccent"/>
         </Constraint>
     </ConstraintSet>
 
@@ -37,6 +38,9 @@
                 android:layout_height="64dp"
                 android:layout_marginRight="7dp"
                 motion:layout_constraintEnd_toEndOf="parent">
+            <CustomAttribute
+                    motion:attributeName="BackgroundColor"
+                    motion:customColorValue="@color/cerulean_blue"/>
         </Constraint>
     </ConstraintSet>
 </MotionScene>

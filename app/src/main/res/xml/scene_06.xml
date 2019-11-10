@@ -23,27 +23,15 @@
         <OnSwipe
                 motion:touchAnchorId="@id/button"
                 motion:touchAnchorSide="right"
-                motion:dragDirection="dragRight" />
+                motion:dragDirection="dragRight"/>
 
         <KeyFrameSet>
             <KeyPosition
                     motion:keyPositionType="pathRelative"
-                    motion:percentY="-0.50"
-                    motion:percentX="0.20"
-                    motion:framePosition="25"
-                    motion:motionTarget="@id/button"/>
-
-            <KeyPosition
-                    motion:keyPositionType="pathRelative"
-                    motion:percentY="0.0"
+                    motion:percentY="-0.25"
                     motion:framePosition="50"
                     motion:motionTarget="@id/button"/>
 
-            <KeyPosition
-                    motion:keyPositionType="pathRelative"
-                    motion:percentY="0.5"
-                    motion:framePosition="75"
-                    motion:motionTarget="@id/button"/>
         </KeyFrameSet>
     </Transition>
 
