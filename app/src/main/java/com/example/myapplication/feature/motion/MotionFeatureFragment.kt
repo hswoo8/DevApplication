@@ -1,6 +1,5 @@
 package com.example.myapplication.feature.motion
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -42,7 +41,7 @@ class MotionFeatureFragment : Fragment() {
             1 -> R.layout.motion_01_basic
             2 -> R.layout.motion_02
             3 -> R.layout.motion_03
-            4 -> R.layout.motion_04
+            4 -> R.layout.motion_04_custom_attribute
             5 -> R.layout.motion_05_imagefilter
             6 -> R.layout.motion_06_keyframe
             7 -> R.layout.motion_07_keyframe

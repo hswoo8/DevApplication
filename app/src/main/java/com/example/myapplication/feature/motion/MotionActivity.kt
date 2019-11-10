@@ -20,8 +20,12 @@ class MotionActivity : AppCompatActivity() {
 
     @OnClick(R.id.enter)
     fun onClickEnter() {
+        val text = input.text.toString()
+        input.text = null
+
+
         try {
-            Integer.parseInt(input.text.toString())
+            Integer.parseInt(text)
         } catch (e: Exception) {
             Toast.makeText(this, "Only Available Digit", Toast.LENGTH_SHORT).show()
             return
@@ -33,10 +37,11 @@ class MotionActivity : AppCompatActivity() {
         }
 
 
+
         beginTransaction
             .add(
                 R.id.fragment_container,
-                MotionFeatureFragment.newInstance(input.text.toString().toInt()),
+                MotionFeatureFragment.newInstance(text.toInt()),
                 MotionFeatureFragment.TAG
             )
             .commitNowAllowingStateLoss()
