@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.TextView
+import android.widget.Toast
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.bumptech.glide.load.engine.bitmap_recycle.IntegerArrayAdapter
 import com.example.myapplication.R
+import java.lang.Exception
 
 class MotionActivity : AppCompatActivity() {
 
@@ -18,6 +20,13 @@ class MotionActivity : AppCompatActivity() {
 
     @OnClick(R.id.enter)
     fun onClickEnter() {
+        try {
+            Integer.parseInt(input.text.toString())
+        } catch (e: Exception) {
+            Toast.makeText(this, "Only Available Digit", Toast.LENGTH_SHORT).show()
+            return
+        }
+        
         val beginTransaction = supportFragmentManager.beginTransaction()
         if (supportFragmentManager.findFragmentByTag(MotionFeatureFragment.TAG) != null) {
             beginTransaction.remove(supportFragmentManager.findFragmentByTag(MotionFeatureFragment.TAG)!!)
