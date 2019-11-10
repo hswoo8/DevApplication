@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.motion_23_viewpager.*
 class MotionFeatureFragment : Fragment() {
 
     private var chapter: Int = 0
-    private lateinit var container: View
 
     companion object {
         const val KEY_NUM_CHAPTER = "keyNumChapter"

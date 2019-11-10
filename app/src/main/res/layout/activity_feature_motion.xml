@@ -11,7 +11,7 @@
         android:background="@color/colorPrimary">
 
     <View
-            android:id="@+id/button"
+            android:id="@+id/view"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:background="@color/colorAccent"
