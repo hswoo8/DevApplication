@@ -17,13 +17,13 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/motionLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutDescription="@xml/scene_01"
+        android:layout_height="wrap_content"
+        app:layoutDescription="@xml/scene_02"
         tools:showPaths="true">
 
     <View
-            android:id="@+id/rectangle"
-            android:background="@color/colorPrimary"
-            android:layout_width="64dp"
-            android:layout_height="64dp"/>
+            android:id="@+id/view"
+            android:background="@color/colorAccent"
+            android:layout_width="1dp"
+            android:layout_height="1dp"/>
 </androidx.constraintlayout.motion.widget.MotionLayout>

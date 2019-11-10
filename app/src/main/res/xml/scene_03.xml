@@ -5,45 +5,36 @@
 
     <Transition
             motion:constraintSetStart="@id/start"
-            motion:constraintSetEnd="@id/end_constraint_set01"
+            motion:constraintSetEnd="@id/end"
+
             motion:duration="1000">
+
         <OnSwipe
-                motion:touchAnchorId="@id/button"
+                motion:touchAnchorId="@id/view"
                 motion:touchAnchorSide="right"
+                motion:onTouchUp="stop"
                 motion:dragDirection="dragRight"/>
+
     </Transition>
 
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
-                android:id="@id/button"
+                android:id="@id/view"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginStart="7dp"
-                android:alpha="0.8"
-                android:rotation="0"
+                motion:layout_constraintBottom_toBottomOf="parent"
                 motion:layout_constraintLeft_toLeftOf="parent"
-                motion:layout_constraintTop_toTopOf="parent">
-            <CustomAttribute
-                    motion:customColorValue="@color/colorPrimary"
-                    motion:attributeName="BackgroundColor"/>
-        </Constraint>
+                motion:layout_constraintTop_toTopOf="parent"/>
     </ConstraintSet>
 
-    <ConstraintSet android:id="@+id/end_constraint_set01">
+    <ConstraintSet android:id="@+id/end">
         <Constraint
-                android:id="@id/button"
+                android:id="@id/view"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginRight="7dp"
-                android:alpha="1.0"
-                android:rotation="50"
-                motion:layout_constraintBottom_toBottomOf="parent"
-                motion:layout_constraintRight_toRightOf="parent"
-                >
-            <CustomAttribute
-                    motion:customColorValue="@color/colorAccent"
-                    motion:attributeName="BackgroundColor"/>
-        </Constraint>
+                motion:layout_constraintEnd_toEndOf="parent"/>
     </ConstraintSet>
 </MotionScene>
