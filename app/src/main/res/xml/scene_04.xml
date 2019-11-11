@@ -15,7 +15,6 @@
 
     </Transition>
 
-
     <ConstraintSet android:id="@+id/start">
         <Constraint
                 android:id="@id/view"

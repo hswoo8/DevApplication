@@ -1,24 +1,41 @@
 package com.example.myapplication.feature.motion
 
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ScrollView
+import androidx.annotation.RequiresApi
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.view.NestedScrollingParent2
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import butterknife.ButterKnife
 import com.example.myapplication.R
 import com.example.myapplication.feature.motion.utils.CollapsibleToolbar
+import com.example.myapplication.feature.motion.utils.TouchFrameLayout
 import com.example.myapplication.feature.motion.utils.ViewPagerAdapter
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.motion_23_viewpager.*
 
-class MotionFeatureFragment : Fragment() {
+class MotionFeatureFragment : Fragment(), MotionActivity.TransitionListener {
+    override fun onShow() {
+        view?.run {
+            visibility = View.VISIBLE
+        }
+    }
+
+    override fun onHide() {
+        view?.run {
+            visibility = View.GONE
+        }
+    }
 
     private var chapter: Int = 0
 
@@ -38,7 +55,11 @@ class MotionFeatureFragment : Fragment() {
         chapter = arguments?.getInt(KEY_NUM_CHAPTER, 1) ?: 1
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(getMotionLayout(chapter), container, false)
     }
 
@@ -62,6 +83,7 @@ class MotionFeatureFragment : Fragment() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ButterKnife.bind(this, view)

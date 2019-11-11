@@ -31,6 +31,7 @@
                     android:alpha="0.6"
                     motion:layout_constraintBottom_toBottomOf="@+id/guideline"
                     motion:layout_constraintStart_toStartOf="parent"/>
+
             <Constraint
                     android:id="@id/sublabel"
                     android:layout_width="wrap_content"

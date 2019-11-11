@@ -2,7 +2,10 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
+import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.example.myapplication.feature.margin.MarginActivity
@@ -24,6 +27,9 @@ class MainActivity : AppCompatActivity()
         startActivity(Intent(this, MotionActivity::class.java))
     }
 
+    @BindView(R.id.checkbox)
+    lateinit var checkBox: CheckBox
+
 //    private lateinit var reverse: ConstraintSet
 //
 //    @BindView(R2.id.bottom_image_list)
@@ -39,7 +45,11 @@ class MainActivity : AppCompatActivity()
         setContentView(R.layout.activity_main)
         ButterKnife.bind(this)
 
-        onClickMotionFeature()
+        checkBox.setOnClickListener {
+            Log.d("seoungwoo -- ", "onclick")
+        }
+
+//        onClickMotionFeature()
 
 //        onClickMarginFeature(findViewById(R.id.margin_feature))
 

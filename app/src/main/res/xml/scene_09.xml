@@ -17,15 +17,11 @@
 
     <Transition
             motion:constraintSetStart="@id/start"
-            motion:constraintSetEnd="@id/end_constraint_set01"
+            motion:constraintSetEnd="@id/end"
             motion:duration="1000"
             motion:motionInterpolator="linear">
-        <OnSwipe
-                motion:touchAnchorId="@id/background"
-                motion:touchAnchorSide="bottom"
-                motion:dragDirection="dragUp" />
 
-        <ConstraintSet android:id="@+id/end_constraint_set01">
+        <ConstraintSet android:id="@+id/end">
             <Constraint
                     android:id="@id/background"
                     android:layout_width="match_parent"
@@ -39,7 +35,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginBottom="8dp"
                     android:rotation="0.0"
-                    motion:layout_constraintBottom_toBottomOf="@+id/background"
+                    motion:layout_constraintBottom_toBottomOf="@id/background"
                     motion:layout_constraintStart_toStartOf="parent" />
         </ConstraintSet>
 
@@ -55,7 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:rotation="-90.0"
-                    motion:layout_constraintBottom_toBottomOf="@+id/background"
+                    motion:layout_constraintBottom_toBottomOf="@id/background"
                     motion:layout_constraintStart_toStartOf="parent"/>
         </ConstraintSet>
     </Transition>

@@ -11,19 +11,10 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-<androidx.constraintlayout.motion.widget.MotionLayout
+<objectAnimator
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/motionLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutDescription="@xml/scene_03"
-        tools:showPaths="true">
-
-    <View
-            android:id="@+id/view"
-            android:background="@color/colorAccent"
-            android:layout_width="1dp"
-            android:layout_height="1dp"/>
-</androidx.constraintlayout.motion.widget.MotionLayout>
+        android:propertyName="onShow"
+        android:valueType="floatType"
+        android:valueFrom="0"
+        android:valueTo="1"
+        android:duration="500"/>

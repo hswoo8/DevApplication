@@ -1,5 +1,84 @@
 motion layout
 
+motion:motionInterpolator=""
+            motion:autoTransition=""
+            motion:staggered=""
+
+<MotionScene>
+	<Transition
+		constraintSetStart
+		constraintSetEnd
+		duration>
+		
+		<OnSwipe></OnSwipe>
+		<OnClick></OnClick>
+		<KeyFrameSet></KeyFrameSet>
+		<></>
+	</Transition>
+	<ConstraintSet>
+		<Constraint/>
+		<Constraint/>
+		<Constraint/>
+		<Constraint/>
+		...
+	</ConstraintSet>
+</MotionScene>
+
+
+
+<Constraint>
+	<Motion>
+	<Transform>
+	<PropertySet>
+	<Layout width, height, margin, connect, goneMargin>
+	<CustomAttribute>
+</Constraint>
+
+
+
+
+            <!--<KeyPosition motion:drawPath=""-->
+                         <!--motion:pathMotionArc=""-->
+                         <!--motion:transitionEasing=""-->
+                         <!--motion:percentX=""-->
+                         <!--motion:curveFit=""-->
+                         <!--motion:framePosition=""-->
+                         <!--motion:keyPositionType=""-->
+                         <!--motion:motionTarget=""-->
+                         <!--motion:percentHeight=""-->
+                         <!--motion:percentWidth=""-->
+                         <!--motion:percentY=""-->
+                         <!--motion:sizePercent=""-->
+                         <!--/>-->
+
+            <!--<Motion motion:transitionEasing=""-->
+                    <!--motion:pathMotionArc=""-->
+                    <!--motion:motionStagger=""-->
+                    <!--motion:motionPathRotate=""-->
+                    <!--motion:animate_relativeTo=""-->
+                    <!--motion:drawPath="">-->
+            <!--</Motion>-->
+
+transitionEasing,
+pathMotionArc,
+drawPath
+
+특정 attribute에 대해 적용이 안됩니다
+
+이미지 필터 뷰?
+	
+
+ConstraintLayout 2.0
+	Flow, 
+	
+
+2개의 ConstraintSet으로 애니메이션
+
+
+	
+
+
+
 환경 설정
 Android Studio 3.3+
 Constraint Layout library 2.0.0-alpha5+
@@ -11,9 +90,6 @@ keyFrame지원
 
 direct children 에게만 적용된다.
 레이아웃 계층, 중첩된 레이아웃, 엑티비티 트랜지션 지원 x
-
-
-
 
 interface
 	Animatable
