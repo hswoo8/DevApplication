@@ -11,7 +11,7 @@
     <include layout="@layout/activity_scrolling"/>
 
     <androidx.constraintlayout.utils.widget.MockView
-            android:id="@+id/button"
+            android:id="@+id/mock_view"
             app:mock_label="Side Panel"
             app:mock_diagonalsColor="#FFF"
             android:layout_width="180dp"
