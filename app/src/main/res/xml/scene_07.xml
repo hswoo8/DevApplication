@@ -16,8 +16,8 @@
         xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <Transition
-            motion:constraintSetStart="@+id/start"
-            motion:constraintSetEnd="@+id/end"
+            motion:constraintSetStart="@+id/left"
+            motion:constraintSetEnd="@+id/right"
             motion:duration="1000"
             motion:motionInterpolator="linear">
 
@@ -41,7 +41,7 @@
                     motion:motionTarget="@id/button"/>
         </KeyFrameSet>
 
-        <ConstraintSet android:id="@+id/start">
+        <ConstraintSet android:id="@+id/left">
             <Constraint
                     android:id="@+id/button"
                     android:layout_width="64dp"
@@ -57,7 +57,7 @@
             </Constraint>
         </ConstraintSet>
 
-        <ConstraintSet android:id="@+id/end">
+        <ConstraintSet android:id="@+id/right">
             <Constraint
                     android:id="@id/button"
                     android:layout_width="64dp"

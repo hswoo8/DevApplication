@@ -14,6 +14,9 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.NestedScrollingParent2
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
+import androidx.transition.Transition
+import androidx.transition.TransitionInflater
+import androidx.transition.TransitionManager
 import androidx.viewpager.widget.ViewPager
 import butterknife.ButterKnife
 import com.example.myapplication.R
@@ -77,13 +80,14 @@ class MotionFeatureFragment : Fragment(), MotionActivity.TransitionListener {
             10 -> R.layout.motion_10_coordinatorlayout
             14 -> R.layout.motion_14_side_panel
             15 -> R.layout.motion_15_parallax
-            23 -> R.layout.motion_23_viewpager
             17 -> R.layout.motion_17_coordination
+            18 -> R.layout.custom
+            19 -> R.layout.custom1
+            23 -> R.layout.motion_23_viewpager
             else -> R.layout.motion_01_basic
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ButterKnife.bind(this, view)
@@ -101,7 +105,7 @@ class MotionFeatureFragment : Fragment(), MotionActivity.TransitionListener {
                 pager.addOnPageChangeListener(motionLayout as ViewPager.OnPageChangeListener)
             }
 
-            val b = arguments?.getBoolean("showPaths", false) ?: false
+            val b = arguments?.getBoolean("showPaths", true) ?: true
             val debugMode = if (b) {
                 MotionLayout.DEBUG_SHOW_PATH
             } else {
@@ -120,6 +124,12 @@ class MotionFeatureFragment : Fragment(), MotionActivity.TransitionListener {
                     return scrollView.canScrollVertically(-1)
                 }
             }
+        }
+
+        if (chapter == 19) {
+            R.id.transition1
+//            view.findViewById<MotionLayout>(R.id.motion_layout)
+//                .setTransition(R.id.left, R.id.right)
         }
     }
 }

@@ -13,6 +13,9 @@ import butterknife.OnClick
 import com.example.myapplication.R
 import com.example.myapplication.feature.motion.utils.TouchFrameLayout
 import java.lang.Exception
+import android.app.Activity
+import android.view.inputmethod.InputMethodManager
+
 
 class MotionActivity : AppCompatActivity(), MotionLayout.TransitionListener {
 
@@ -25,7 +28,7 @@ class MotionActivity : AppCompatActivity(), MotionLayout.TransitionListener {
     @BindView(R.id.fragment_container)
     lateinit var fragmentContainer: FrameLayout
 
-    @BindView(R.id.container1)
+    @BindView(R.id.animation_container)
     lateinit var container: TouchFrameLayout
 
     @BindView(R.id.motionLayout1)
@@ -33,6 +36,7 @@ class MotionActivity : AppCompatActivity(), MotionLayout.TransitionListener {
 
     @OnClick(R.id.enter)
     fun onClickEnter() {
+        hideKeyboard(this)
         val text = input.text.toString()
         input.text = null
 
@@ -75,7 +79,6 @@ class MotionActivity : AppCompatActivity(), MotionLayout.TransitionListener {
             }
         }
 
-
         (container.parent as MotionLayout).setTransitionListener(this)
 
         (motionLayout.layoutParams as ConstraintLayout.LayoutParams).run {
@@ -104,7 +107,7 @@ class MotionActivity : AppCompatActivity(), MotionLayout.TransitionListener {
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.setCustomAnimations(R.animator.show, 0)
                 transaction.replace(
-                    R.id.container1,
+                    R.id.animation_container,
                     MotionFeatureFragment.newInstance(input.text.toString().toInt()),
                     MotionFeatureFragment.TAG
                 ).commitNow()
@@ -125,5 +128,16 @@ class MotionActivity : AppCompatActivity(), MotionLayout.TransitionListener {
     interface TransitionListener {
         fun onShow()
         fun onHide()
+    }
+
+    private fun hideKeyboard(activity: Activity) {
+        val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        //Find the currently focused view, so we can grab the correct window token from it.
+        var view = activity.currentFocus
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = View(activity)
+        }
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

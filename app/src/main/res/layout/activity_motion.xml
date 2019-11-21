@@ -11,7 +11,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/chapter_input"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

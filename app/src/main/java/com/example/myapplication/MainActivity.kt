@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
+import com.example.myapplication.feature.crop.CropActivity
 import com.example.myapplication.feature.margin.MarginActivity
 import com.example.myapplication.feature.motion.MotionActivity
 
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity()
 //    lateinit var imageList: RecyclerView
 //
 //    @BindView(R2.id.image)
-//    lateinit var imageView: ImageView
+//    lateinit var pinchImageView: ImageView
 //
 //    val list = arrayListOf<String>()
 
@@ -44,12 +45,8 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         ButterKnife.bind(this)
-
-        checkBox.setOnClickListener {
-            Log.d("seoungwoo -- ", "onclick")
-        }
-
-//        onClickMotionFeature()
+        val intent = Intent(this, CropActivity::class.java)
+        startActivity(intent)
 
 //        onClickMarginFeature(findViewById(R.id.margin_feature))
 
@@ -63,7 +60,7 @@ class MainActivity : AppCompatActivity()
 //            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
 //        }
 //
-//        imageView.setImageResource(R.drawable.error)
+//        pinchImageView.setImageResource(R.drawable.error)
 
     }
 
@@ -85,7 +82,7 @@ class MainActivity : AppCompatActivity()
 
 //        Glide.with(this)
 //            .load("http://goo.gl/gEgYUd")
-//            .into(imageView)
+//            .into(pinchImageView)
 
 //        val findViewById = findViewById<TextView>(R.id.text_view)
 //        val startDelay = TransitionInflater.from(this)

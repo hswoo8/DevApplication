@@ -10,7 +10,7 @@
         tools:context=".MainActivity">
 
     <com.example.myapplication.feature.motion.utils.TouchFrameLayout
-            android:id="@+id/container1"
+            android:id="@+id/animation_container"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginEnd="32dp"

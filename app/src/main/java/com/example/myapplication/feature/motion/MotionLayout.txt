@@ -118,7 +118,11 @@ Transition
 	KeyFrameSet
 
 참조
-
+staggered : 0~1 duration의 지연 %
+motionProgress
+moveWhenScrollAtTop : true 또느 false대입. RecyclerView나 NestedScrollView같은 스크롤 가능한 뷰가 스크롤될 때 애니메이션을 실행시킬지에 대한 정의입니다.
+maxAcceleration : touch up 될 때, 얼마나 빨리 애니메이션이 가속하고 감속하는지에 대한 정의
+constraint_referenced_ids
 
 api)
 https://developer.android.com/reference/android/support/constraint/motion/MotionLayout

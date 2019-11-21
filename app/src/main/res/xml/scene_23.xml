@@ -5,11 +5,11 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Transition
-            motion:constraintSetStart="@+id/start"
-            motion:constraintSetEnd="@+id/end">
+            motion:constraintSetStart="@+id/left"
+            motion:constraintSetEnd="@+id/right">
     </Transition>
 
-    <ConstraintSet android:id="@+id/start">
+    <ConstraintSet android:id="@+id/left">
         <Constraint
                 android:id="@id/animation_view"
                 android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         </Constraint>
     </ConstraintSet>
 
-    <ConstraintSet android:id="@+id/end">
+    <ConstraintSet android:id="@+id/right">
         <Constraint
                 android:id="@id/animation_view"
                 android:layout_width="match_parent"
