@@ -8,18 +8,37 @@
 
     <com.example.myapplication.PinchImageView
             android:id="@+id/pinch_image_view"
-            android:src="@drawable/avatar_1_raster"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:src="@drawable/avatar_1_raster"
+            android:visibility="gone" />
 
     <ImageView
-            android:id="@+id/image_view"
-            android:scaleType="matrix"
-            android:visibility="invisible"
-            android:src="@drawable/avatar_2_raster"
+            android:id="@+id/image_view1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:scaleType="matrix"
+            android:src="@drawable/avatar_2_raster"
+            android:visibility="visible" />
 
+    <ImageView
+            android:id="@+id/image_view2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="matrix"
+            android:src="@drawable/avatar_3_raster"
+            android:visibility="invisible" />
+
+    <View
+            android:id="@+id/overlay_view"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.2"
+            android:background="@color/cerulean_blue" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
