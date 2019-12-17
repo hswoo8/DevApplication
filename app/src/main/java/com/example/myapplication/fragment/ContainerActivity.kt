@@ -31,15 +31,15 @@ class ContainerActivity : AppCompatActivity(), FragmentLaunchInterface {
         onAdd(BasicFragment.newInstance(), false)
     }
 
-    override fun onAdd(fragment: Fragment, addBackStack: Boolean) {
+    override fun onAdd(fragment: AbstractFragment, addBackStack: Boolean) {
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, fragment, "")
+            .add(R.id.fragment_container, fragment, fragment.TAG)
             .commit()
     }
 
-    override fun onReplace(fragment: Fragment, backStack: Boolean) {
+    override fun onReplace(fragment: AbstractFragment, backStack: Boolean) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
+            .replace(R.id.fragment_container, fragment, fragment.TAG)
             .commit()
     }
 
@@ -57,7 +57,7 @@ class ContainerActivity : AppCompatActivity(), FragmentLaunchInterface {
 }
 
 interface FragmentLaunchInterface {
-    fun onAdd(fragment: Fragment, addBackStack: Boolean)
+    fun onAdd(fragment: AbstractFragment, addBackStack: Boolean)
 
-    fun onReplace(fragment: Fragment, backStack: Boolean)
+    fun onReplace(fragment: AbstractFragment, backStack: Boolean)
 }

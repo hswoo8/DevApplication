@@ -11,7 +11,11 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.example.myapplication.R
 
-class BasicFragment() : Fragment(R.layout.fragment_basic) {
+class BasicFragment() : AbstractFragment(R.layout.fragment_basic) {
+
+    override var TAG: String
+        get() = "basicFragment"
+        set(value) {}
 
     companion object {
         const val TAG = "basicFragment"
