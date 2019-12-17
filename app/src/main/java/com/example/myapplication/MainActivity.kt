@@ -2,7 +2,6 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 import butterknife.BindView
@@ -11,6 +10,7 @@ import butterknife.OnClick
 import com.example.myapplication.feature.crop.CropActivity
 import com.example.myapplication.feature.margin.MarginActivity
 import com.example.myapplication.feature.motion.MotionActivity
+import com.example.myapplication.fragment.ContainerActivity
 
 class MainActivity : AppCompatActivity()
 //    , Communication
@@ -26,6 +26,16 @@ class MainActivity : AppCompatActivity()
     @OnClick(R.id.motion_feature)
     fun onClickMotionFeature() {
         startActivity(Intent(this, MotionActivity::class.java))
+    }
+
+    @OnClick(R.id.crop_feature)
+    fun onClickCrop_feature() {
+        startActivity(Intent(this, CropActivity::class.java))
+    }
+
+    @OnClick(R.id.fragment_example)
+    fun onClickFragmentExample() {
+        startActivity(Intent(this, ContainerActivity::class.java))
     }
 
     @BindView(R.id.checkbox)
@@ -45,8 +55,7 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         ButterKnife.bind(this)
-        val intent = Intent(this, CropActivity::class.java)
-        startActivity(intent)
+        onClickFragmentExample()
 
 //        onClickMarginFeature(findViewById(R.id.margin_feature))
 
@@ -62,7 +71,42 @@ class MainActivity : AppCompatActivity()
 //
 //        pinchImageView.setImageResource(R.drawable.error)
 
+
+        val parent: Wrapper<Super> = Wrapper(Sub())
+        val instance = getInstance()
     }
+
+    fun getInstance(): Wrapper<Super> {
+        return Wrapper<Sub>(Sub())
+    }
+
+    fun getInstance1(): ViewHolder<Wrapper<Super>> {
+        val value = object : ViewHolder<Wrapper<Super>>(Wrapper(Sub())) {
+            override fun bind(item: Wrapper<Super>) {
+
+            }
+        }
+
+        return value
+    }
+
+    abstract class ViewHolder<T : Wrapper<Super>>(val item: T) {
+        abstract fun bind(item: T)
+    }
+
+    open class Super {
+
+    }
+
+    class Sub : Super() {
+
+    }
+
+    abstract class Adapter<T : ViewHolder<Wrapper<Super>>>(item: T) {
+        abstract fun bind(item: T)
+    }
+
+    class Wrapper<out T : Super>(val item: T)
 
     private fun setImageList() {
 //        try {

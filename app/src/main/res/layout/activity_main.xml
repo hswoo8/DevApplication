@@ -79,4 +79,18 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/margin_feature" />
 
+    <Button
+            android:id="@+id/crop_feature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="crop_activity"
+            app:layout_constraintTop_toBottomOf="@id/motion_feature" />
+
+    <Button
+            android:id="@+id/fragment_example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="fragment"
+            app:layout_constraintTop_toBottomOf="@id/crop_feature" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,9 +11,13 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".feature.crop.CropActivity"></activity>
-        <activity android:name=".feature.motion.MotionActivity"></activity>
-        <activity android:name=".feature.margin.MarginActivity"></activity>
+        <activity android:name=".fragment.ContainerActivity"
+                android:theme="@style/AppTheme.NoActionBar"
+                android:configChanges="orientation|keyboardHidden"
+                ></activity>
+        <activity android:name=".feature.crop.CropActivity" />
+        <activity android:name=".feature.motion.MotionActivity" />
+        <activity android:name=".feature.margin.MarginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

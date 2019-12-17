@@ -11,7 +11,9 @@
     <color name="text">#ffffff</color>
     <color name="azure">#49A9DF</color>
     <color name="cerulean_blue">#137AE2</color>
-    <color name="brown">#643A07</color>
+    <color name="cerulean_blue30">#ffc3aAE2</color>
+    <color name="cerulean_blue_50">#fff3aAE2</color>
+    <color name="brown">#cf643A07</color>
     <color name="white">#ffffffff</color>
 
 </resources>
