@@ -33,7 +33,7 @@ class ContainerActivity : AppCompatActivity(), FragmentLaunchInterface {
 
     override fun onAdd(fragment: AbstractFragment, addBackStack: Boolean) {
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, fragment, fragment.TAG)
+            .add(R.id.fragment_container, fragment, fragment.TAG + supportFragmentManager.fragments.size)
             .commit()
     }
 
