@@ -20,6 +20,22 @@
             app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
+            android:id="@+id/show_button"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/hide_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="show" />
+
+    <Button
+            android:id="@+id/hide_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hide"
+            app:layout_constraintBottom_toTopOf="@id/replace_button"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
             android:id="@+id/replace_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
