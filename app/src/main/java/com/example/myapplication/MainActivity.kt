@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         ButterKnife.bind(this)
-        onClickFragmentExample()
+        onClickCrop_feature()
 
 //        onClickMarginFeature(findViewById(R.id.margin_feature))
 

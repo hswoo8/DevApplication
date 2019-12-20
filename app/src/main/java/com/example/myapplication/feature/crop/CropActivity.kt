@@ -91,21 +91,23 @@ class CropActivity : AppCompatActivity() {
             )
 
 //            currentImageMatrix.setRectToRect(src, dst, Matrix.ScaleToFit.CENTER)
-
+            currentImageMatrix.mapPoints(currentImageCorners, initializeCorner)
             imageView1.imageMatrix = currentImageMatrix
 
         }
 
         imageView1.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+            val intrinsicWidth = imageView1.drawable.intrinsicWidth.toFloat()
+            val intrinsicHeight = imageView1.drawable.intrinsicHeight.toFloat()
             initializeCorner = RectUtils.getCornersFromRect(
                 RectF(
                     left.toFloat(),
                     top.toFloat(),
-                    right.toFloat(),
-                    bottom.toFloat()
+                    intrinsicWidth.toFloat(),
+                    intrinsicHeight.toFloat()
                 )
             )
-            currentImageMatrix.mapPoints(currentImageCorners, initializeCorner)
+            currentImageMatrix.mapPoints(initializeCorner)
         }
 
 
@@ -113,6 +115,8 @@ class CropActivity : AppCompatActivity() {
             baseContext,
             object : ScaleGestureDetector.SimpleOnScaleGestureListener() {
                 override fun onScale(detector: ScaleGestureDetector?): Boolean {
+                    val clipBounds = overlayView.getClipBounds()
+                    Log.d("seoungwoo -- ", "clipBounds($clipBounds)")
                     val rectF = RectF(
                         overlayView.left.toFloat(),
                         overlayView.top.toFloat(),
@@ -133,10 +137,13 @@ class CropActivity : AppCompatActivity() {
                         touchCenterPoint.x,
                         touchCenterPoint.y
                     )
-                    temp.mapPoints(currentImageCorners, initializeCorner)
-                    if (!RectUtils.trapToRect(currentImageCorners).contains(rectF)) {
+
+                    val tempImageCorners = FloatArray(8)
+                    temp.mapPoints(tempImageCorners, initializeCorner)
+
+                    if (!RectUtils.trapToRect(tempImageCorners).contains(rectF)) {
                         Log.d("seoungwoo -- ", "boundary")
-                        currentImageMatrix.mapPoints(currentImageCorners, initializeCorner)
+//                        currentImageMatrix.mapPoints(currentImageCorners, initializeCorner)
                         return true
                     }
                     currentImageMatrix.set(temp)
@@ -145,23 +152,50 @@ class CropActivity : AppCompatActivity() {
                     return true
                 }
             })
-        val gestureDetector =
-            GestureDetector(baseContext, object : GestureDetector.SimpleOnGestureListener() {
-                override fun onDoubleTap(e: MotionEvent?): Boolean {
+        val gestureListener = object : GestureDetector.SimpleOnGestureListener() {
+            override fun onScroll(
+                e1: MotionEvent?,
+                e2: MotionEvent?,
+                distanceX: Float,
+                distanceY: Float
+            ): Boolean {
+                if (distanceX != 0f || distanceY != 0f) {
+                    val rectF = RectF(
+                        overlayView.left.toFloat(),
+                        overlayView.top.toFloat(),
+                        overlayView.right.toFloat(),
+                        overlayView.bottom.toFloat()
+                    )
+                    val temp = Matrix(currentImageMatrix)
+                    temp.postTranslate(-distanceX, -distanceY)
+                    temp.mapPoints(currentImageCorners, initializeCorner)
 
-                    imageView2.visibility = View.VISIBLE
-                    imageView2.imageMatrix = currentImageMatrix
-                    return true
+                    if (!RectUtils.trapToRect(currentImageCorners).contains(rectF)) {
+                        Log.d("seoungwoo -- ", "boundary")
+                        currentImageMatrix.mapPoints(currentImageCorners, initializeCorner)
+                        return false
+                    }
+                    currentImageMatrix.set(temp)
+                    currentImageMatrix.mapPoints(currentImageCorners, initializeCorner)
+                    imageView1.imageMatrix = currentImageMatrix
                 }
+                return true
+            }
+        }
+        val value = object : GestureDetector.SimpleOnGestureListener() {
+            override fun onDoubleTap(e: MotionEvent?): Boolean {
+                imageView2.visibility = View.VISIBLE
+                imageView2.imageMatrix = currentImageMatrix
+                return true
+            }
 
-            })
+        }
+        val gestureDetector = GestureDetector(baseContext, gestureListener)
 
         imageView1.setOnTouchListener { v, event ->
-            val asdf = FloatArray(9)
-
-            if (gestureDetector.onTouchEvent(event)) {
-                return@setOnTouchListener true
-            }
+            //            if (gestureDetector.onTouchEvent(event)) {
+//                return@setOnTouchListener true
+//            }
             if (event.pointerCount > 1) {
                 if (event.pointerCount > 1) {
                     val centerX = (event.getX(0) + event.getX(1)) / 2
@@ -169,13 +203,17 @@ class CropActivity : AppCompatActivity() {
                     touchCenterPoint.set(centerX, centerY)
                 }
             }
-            if (scaleGestureDetector.onTouchEvent(event))
-                return@setOnTouchListener true
+
+//            if (scaleGestureDetector.onTouchEvent(event))
+//                return@setOnTouchListener true
+            gestureDetector.onTouchEvent(event)
+            scaleGestureDetector.onTouchEvent(event)
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
 
                 }
                 else -> {
+
                 }
             }
             true
