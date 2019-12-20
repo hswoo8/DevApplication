@@ -14,7 +14,7 @@
             android:visibility="gone" />
 
     <ImageView
-            android:id="@+id/image_view1"
+            android:id="@+id/image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="matrix"
@@ -33,8 +33,8 @@
             android:id="@+id/overlay_view"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginTop="350dp"
+            android:layout_marginBottom="350dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alpha="0.2"
