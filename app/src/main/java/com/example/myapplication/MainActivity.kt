@@ -2,11 +2,13 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
+import com.example.myapplication.feature.binding.BindingExampleActivity
 import com.example.myapplication.feature.crop.CropActivity
 import com.example.myapplication.feature.margin.MarginActivity
 import com.example.myapplication.feature.motion.MotionActivity
@@ -38,6 +40,11 @@ class MainActivity : AppCompatActivity()
         startActivity(Intent(this, ContainerActivity::class.java))
     }
 
+    @OnClick(R.id.binding_example)
+    fun onClickBindingExample() {
+        startActivity(Intent(this, BindingExampleActivity::class.java))
+    }
+
     @BindView(R.id.checkbox)
     lateinit var checkBox: CheckBox
 
@@ -55,7 +62,8 @@ class MainActivity : AppCompatActivity()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         ButterKnife.bind(this)
-        onClickCrop_feature()
+        onClickBindingExample()
+
 
 //        onClickMarginFeature(findViewById(R.id.margin_feature))
 

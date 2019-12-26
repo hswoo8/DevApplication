@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+        <import type="com.example.myapplication.feature.binding.ImageViewViewModel"/>
+        <variable
+                name="viewModel"
+                type="com.example.myapplication.feature.binding.ImageViewViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".feature.binding.BindingExampleActivity">
+
+        <TextView
+                android:text="@{ImageViewViewModel.CONST_TEXT}"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <ImageView
+                android:id="@+id/thumbnail"
+                android:visibility="@{View.VISIBLE}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@{@drawable/avatar_3_raster}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                setFixedSize="@{true}"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
