@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 
 
-class SApplication : Application() {
+class BaseApplication : Application() {
     companion object {
         lateinit var context: Context
     }

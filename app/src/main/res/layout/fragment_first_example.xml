@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.example.myapplication.feature.binding.ViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:src="@{viewModel.resId}"
+                android:tint="@{viewModel.tint}"
+                android:tintMode="@{viewModel.tintMode}"
+                app:layout_constraintBottom_toTopOf="@id/text_view"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.text}"
+                android:textSize="25dp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/cerulean_blue_50" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

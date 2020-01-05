@@ -9,7 +9,7 @@ package com.example.myapplication.util;
 import android.content.Context;
 import android.graphics.PointF;
 
-import com.example.myapplication.SApplication;
+import com.example.myapplication.BaseApplication;
 
 /**
  * @author likebebop
@@ -18,17 +18,17 @@ public class GraphicUtils {
     private static float MAX_BLUR_RADIUS_PX = 25.f;
 
     public static float pxToDp(int px) {
-        final float scale = SApplication.context.getResources().getDisplayMetrics().density;
+        final float scale = BaseApplication.context.getResources().getDisplayMetrics().density;
         return px / scale;
     }
 
     public static int dpToPx(float dp) {
-        final float scale = SApplication.context.getResources().getDisplayMetrics().density;
+        final float scale = BaseApplication.context.getResources().getDisplayMetrics().density;
         return (int) (dp * scale + 0.5f);
     }
 
     public static float dpToPxFloat(float dp) {
-        final float scale = SApplication.context.getResources().getDisplayMetrics().density;
+        final float scale = BaseApplication.context.getResources().getDisplayMetrics().density;
         return dp * scale;
     }
 

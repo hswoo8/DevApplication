@@ -3,7 +3,7 @@
         package="com.example.myapplication">
 
     <application
-            android:name=".SApplication"
+            android:name=".BaseApplication"
             android:allowBackup="true"
             android:hardwareAccelerated="true"
             android:icon="@mipmap/ic_launcher"
@@ -11,11 +11,13 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".feature.binding.ExampleActivity"></activity>
+        <activity
+                android:name=".feature.binding.ExampleActivity"
+                android:configChanges="orientation" />
+
         <activity android:name=".feature.matrix.MatrixActivity" />
         <activity
                 android:name=".fragment.ContainerActivity"
-                android:configChanges="orientation|keyboardHidden"
                 android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".feature.crop.CropActivity" />
         <activity android:name=".feature.motion.MotionActivity" />

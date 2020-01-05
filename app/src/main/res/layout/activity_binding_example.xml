@@ -5,49 +5,10 @@
 
     <data>
 
-        <import type="android.view.View" />
-
-        <import type="com.example.myapplication.feature.binding.ImageViewViewModel" />
-
-        <variable
-                name="viewModel"
-                type="com.example.myapplication.feature.binding.ImageViewViewModel" />
-
-        <variable
-                name="textString"
-                type="String" />
-
-        <variable
-                name="textObservable"
-                type="androidx.databinding.ObservableField" />
-
-        <variable
-                name="stringValue"
-                type="com.example.myapplication.feature.binding.generic.GenericClass" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".feature.binding.ExampleActivity">
-
-        <ImageView
-                android:id="@+id/thumbnail"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:alpha="@{0.3f}"
-                android:src="@{@drawable/avatar_3_raster}"
-                app:layout_constraintBottom_toTopOf="@id/text_view"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-                android:id="@+id/text_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                text1="@{textObservable}"
-                android:textSize="25dp"
-                app:layout_constraintBottom_toBottomOf="parent" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="match_parent" />
 </layout>
