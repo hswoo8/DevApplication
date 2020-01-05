@@ -7,9 +7,5 @@ import androidx.annotation.NonNull
 import androidx.databinding.BindingAdapter
 
 object ViewBindingAdapter1 {
-    @BindingAdapter("visibility")
-    @JvmStatic
-    fun setVisibility(view: View, visibility: Int) {
-        view.visibility = visibility
-    }
+
 }

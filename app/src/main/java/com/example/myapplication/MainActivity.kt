@@ -2,13 +2,12 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
-import com.example.myapplication.feature.binding.BindingExampleActivity
+import com.example.myapplication.feature.binding.ExampleActivity
 import com.example.myapplication.feature.crop.CropActivity
 import com.example.myapplication.feature.margin.MarginActivity
 import com.example.myapplication.feature.motion.MotionActivity
@@ -42,7 +41,7 @@ class MainActivity : AppCompatActivity()
 
     @OnClick(R.id.binding_example)
     fun onClickBindingExample() {
-        startActivity(Intent(this, BindingExampleActivity::class.java))
+        startActivity(Intent(this, ExampleActivity::class.java))
     }
 
     @BindView(R.id.checkbox)
