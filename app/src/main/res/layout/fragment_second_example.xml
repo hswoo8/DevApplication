@@ -6,7 +6,7 @@
 
         <variable
                 name="viewModel"
-                type="com.example.myapplication.feature.binding.example.first.ViewModel" />
+                type="com.example.myapplication.feature.binding.example.second.ViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,11 +18,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:src="@{viewModel.resId}"
-                android:tint="@{viewModel.tint}"
-                android:tintMode="@{viewModel.tintMode}"
-
                 app:layout_constraintBottom_toTopOf="@id/text_view"
                 app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
                 android:id="@+id/text_view"
@@ -31,8 +29,5 @@
                 android:text="@{viewModel.text}"
                 android:textSize="25dp"
                 app:layout_constraintBottom_toBottomOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-
-

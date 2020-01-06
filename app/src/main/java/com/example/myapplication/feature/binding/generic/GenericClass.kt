@@ -1,3 +1,7 @@
 package com.example.myapplication.feature.binding.generic
 
-class GenericClass<T>(val t: T)
+open class GenericClass<T>(var t: T)
+
+class ValueClass(var value: Long) {
+
+}

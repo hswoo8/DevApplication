@@ -6,16 +6,38 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.example.myapplication.R
+import com.example.myapplication.databinding.FragmentBasicBinding
 
 class BasicFragment() : AbstractFragment(R.layout.fragment_basic) {
+    private lateinit var binding: FragmentBasicBinding
 
-    override var TAG: String
-        get() = "basicFragment"
-        set(value) {}
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentBasicBinding.inflate(layoutInflater, container, false)
+
+        binding = DataBindingUtil.inflate(
+            layoutInflater,
+            R.layout.fragment_basic,
+            container,
+            false
+        )
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentBasicBinding.bind(view) ?: return
+
+    }
+
 
     companion object {
         const val TAG = "basicFragment"
@@ -23,24 +45,4 @@ class BasicFragment() : AbstractFragment(R.layout.fragment_basic) {
             return BasicFragment()
         }
     }
-
-    @BindView(R.id.text_view)
-    lateinit var textView: TextView
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val onCreateView = super.onCreateView(inflater, container, savedInstanceState)
-        ButterKnife.bind(this, onCreateView!!)
-        return onCreateView
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        Log.d("seoungwoo -- ", "tag = $tag")
-    }
-
-
 }

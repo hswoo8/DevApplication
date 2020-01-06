@@ -3,36 +3,34 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
                 name="viewModel"
-                type="com.example.myapplication.feature.binding.example.first.ViewModel" />
+                type="com.example.myapplication.feature.binding.example.third.ViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <ImageView
-                android:id="@+id/thumbnail"
+        <EditText
+                android:id="@+id/edit_text"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:src="@{viewModel.resId}"
-                android:tint="@{viewModel.tint}"
-                android:tintMode="@{viewModel.tintMode}"
-
-                app:layout_constraintBottom_toTopOf="@id/text_view"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:text="@={viewModel.text}"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
                 android:id="@+id/text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="@{viewModel.text}"
                 android:textSize="25dp"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/edit_text" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-
-
