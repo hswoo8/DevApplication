@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-abstract class BaseFragment : Fragment(), Repository.CallBack {
+abstract class BaseFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -20,9 +20,5 @@ abstract class BaseFragment : Fragment(), Repository.CallBack {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-    }
-
-    override fun onLoad(list: List<Model>) {
-
     }
 }
